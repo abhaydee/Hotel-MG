@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  <html lang=en>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Add Employee</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <link href="{{url_for('static',filename='style/main.css')}}" rel="stylesheet" type="text/css" media="screen" />
+  <link href="{{url_for('static',filename='style/animate.css')}}" rel="stylesheet" >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+   <!-- Compiled and minified JavaScript -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  </head>
+  <body background="{{url_for('static',filename='addemp.jpg')}}">
+  <!-- <div>
+      <h1>Enter the employee details</h1>
+    <form action ="slide4.py" method="get">
+        <div class ="col-3">
+          Employees ID <input type = "text" name ="empid" /><br>
+          Employee Name <input type = "text" name ="empname"/><br>
+          Age<input type = "text" name ="empage" /><br>
+          Designation<input type = "text" name ="empdes" /><br>
+          Phone<input type = "text" name ="empphone" /><br>
+          Address<input type = "text" name ="empaddress" />
+        </div>
+        <div class ="col-4">
+            <input type ="submit" value ="QUERY"/>
+        </div>
+      </div>-->
+
+      {% if error is defined %}
+          <div>
+              <h1>{{ error }}</h1>
+          </div>
+          {% else %}
+        {% if empulist is not defined %}
+        <div>
+          <div>
+            <h1 class="black-text">Enter the employee details</h1>
+          <form action ="/employees/addemp/" method="post">
+              <div class ="col-3 container white-text">
+                Employees ID <input type = "text" name ="empid"  /><br>
+                Employee Name <input type = "text" name ="empname" /><br>
+                Age<input type = "text" name ="empage" /><br>
+                Designation<input type = "text" name ="empdes" /><br>
+                Phone<input type = "text" name ="empphone" /><br>
+                Address<input type = "text" name ="empaddress" />
+              </div>
+              <div class ="col-4">
+                  <input type ="submit" value ="Enter" class="btn btn-large waves-effect waves-light black"/>
+              </div>
+            </form>
+            </div>
+
+        <div>{{ msg }}</div>
+      {% else %}
+          <div>
+            <div>
+              <h1 class="black-text">Enter the employee details</h1>
+            <form action ="/employees/addemp/" method="post">
+                <div class ="col-3 container white-text">
+                  Employees ID <input type = "text" name ="empid" value="{{empulist[0]}}" /><br>
+                  Employee Name <input type = "text" name ="empname" value="{{empulist[1]}}"/><br>
+                  Age<input type = "text" name ="empage" value="{{empulist[2]}}"/><br>
+                  Designation<input type = "text" name ="empdes" value="{{empulist[3]}}"/><br>
+                  Phone<input type = "text" name ="empphone" value="{{empulist[4]}}"/><br>
+                  Address<input type = "text" name ="empaddress" value="{{empulist[5]}}"/>
+                </div>
+                <div class ="col-4">
+                    <input type ="submit" value ="Enter" class="btn btn-large waves-effect waves-light black"/>
+                </div>
+              </form>
+              </div>
+
+          <div>{{ msg }}</div>
+      {% endif %}
+      {% endif %}
+      <a href="/employees/" class="black-text btn btn-medium waves-effect waves-light">Back</a>
+    </body>
+</html>

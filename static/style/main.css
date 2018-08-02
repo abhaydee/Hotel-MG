@@ -1,0 +1,23 @@
+*{
+
+
+  font-style:normal;
+  text-align: center;
+  color: white;
+  flex-wrap: normal;
+
+}
+div{
+  margin-bottom: 30px;
+}
+audio{
+  display:none;
+}
+input{
+  color:green;
+}
+
+.firstclass{
+  color: black;
+  font-weight: bold;
+}

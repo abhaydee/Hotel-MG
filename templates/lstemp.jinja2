@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Employees</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <link href="{{url_for('static',filename='style/main.css')}}" rel="stylesheet" type="text/css" media="screen" />
+  <link href="{{url_for('static',filename='style/animate.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    .abcd {
+      width: 100%;
+      height: 700px;
+    }
+  </style>
+</head>
+
+<body class="abcd" background="{{url_for('static',filename='abcd.jpeg')}}">
+  <!--  <div class="supreme">
+    <h1 class="black-text">This shows list of employees</h1>
+    <a href="/employees/addemp/" class="btn btn-medium waves-effect waves-light">
+      <button class="btn btn-medium waves-effect waves-light">Add</button>
+    </a>
+    <a href="/employees/lstemp/" class="btn btn-medium waves-effect waves-light">
+      <button class="btn btn-medium waves-effect waves-light">Manage</button>
+    </a>-->
+
+
+
+  <section class="section1 teal  center section-icons black-text">
+    <div class="row">
+      <h1 class="black-text">This shows list of employees</h1>
+      <div class="col s12 m6">
+
+        <div class="card-panel grey darken-3">
+          <i class="material-icons large teal-text">add_circle</i>
+          <p class="white-text">Add employees</p>
+          <a href="/employees/addemp/" class="btn btn-medium waves-effect waves-light">
+            <button class="btn btn-medium waves-effect waves-light">Add</button>
+          </a>
+          </a>
+        </div>
+
+      </div>
+      <div class="col s12 m6">
+        <div class="card-panel grey darken-3">
+          <i class="material-icons large teal-text">map</i>
+          <p class="white-text">Manage</p>
+          <a href="/employees/lstemp/" class="btn btn-medium waves-effect waves-light">
+            <button class="btn btn-medium waves-effect waves-light">Manage</button>
+          </a>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

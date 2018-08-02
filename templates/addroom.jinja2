@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang=en>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Add Rooms</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href="{{url_for('static',filename='style/main2.css')}}" rel="stylesheet" type="text/css" media="screen" />
+    <link href="{{url_for('static',filename='style/animate.css')}}" rel="stylesheet">
+
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+<style>
+
+.myselect{
+
+  font-weight: bold;
+  color: black;
+}
+
+</style>
+</head>
+
+<body background="{{url_for('static',filename='addroom.jpeg')}}">
+    <!-- <div>
+      <h1>Enter the employee details</h1>
+    <form action ="slide4.py" method="get">
+        <div class ="col-3">
+          Employees ID <input type = "text" name ="empid" /><br>
+          Employee Name <input type = "text" name ="empname"/><br>
+          Age<input type = "text" name ="empage" /><br>
+          Designation<input type = "text" name ="empdes" /><br>
+          Phone<input type = "text" name ="empphone" /><br>
+          Address<input type = "text" name ="empaddress" />
+        </div>
+        <div class ="col-4">
+            <input type ="submit" value ="QUERY"/>
+        </div>
+      </div>-->
+
+    {% if error is defined %}
+    <div>
+        <h1>{{ error }}</h1>
+    </div>
+    {% else %}
+    {% if roomulist is not defined %}
+
+        <div>
+            <h1 class="black-text">Enter the room details</h1>
+            <form action="/rooms/addrooms/" method="post">
+                <div class="col-3">
+                    <h3>Room no</h3>
+                    <input type="text" name="roomno" />
+                    <br>
+                    <!--Employee Name <input type = "text" name ="empname"/><br>
+                Age<input type = "text" name ="empage" /><br>
+                Designation<input type = "text" name ="empdes" /><br>
+                Phone<input type = "text" name ="empphone" /><br>
+                Address<input type = "text" name ="empaddress" />-->
+                <br>
+                </div>
+                <br>
+                <div class="container">
+                <label>
+                    <h3 class="black-text">Enter the room type</h3>
+                  
+                    <select class="container" name="type"  >
+                        <option disabled selected value="0">-- Choose an option --</option>
+                        <option value="3">type 5</option>
+                        <option value="2">type 4</option>
+                        <option value="1.5">type 3</option>
+                        <option value="1">type 2</option>
+                        <option value="0.5">type 1</option>
+                    </select>
+                </label>
+                <br>
+
+              </div>
+                <div class="col-4">
+                    <input type="submit" value="Enter" />
+                </div>
+            </form>
+        </div>
+        <br>
+        <div>{{ msg }}</div>
+        {% else %}
+
+            <div>
+                <h1 class="black-text">Enter the room details</h1>
+                <form action="/rooms/addrooms/" method="post">
+                    <div class="col-3">
+                        <span class="black">Room no</span>
+                        <br>
+                        <input class="black-text" type="text" name="roomno" value="{{roomulist}}"/>
+                        <br>
+                        <!--Employee Name <input type = "text" name ="empname"/><br>
+                    Age<input type = "text" name ="empage" /><br>
+                    Designation<input type = "text" name ="empdes" /><br>
+                    Phone<input type = "text" name ="empphone" /><br>
+                    Address<input type = "text" name ="empaddress" />-->
+                    </div>
+                    <br>
+                    <label class="black-text container">
+                        <h3 class="black-text">Enter the room type<h3>
+
+                        <select class="myselect teal" id="serviceQuality" name="type">
+                            <option disabled selected value="0">-- Choose an option --</option>
+                            <option value="3">type 5</option>
+                            <option value="2">type 4</option>
+                            <option value="1.5">type 3</option>
+                            <option value="1">type 2</option>
+                            <option value="0.5">type 1</option>
+                        </select>
+                    </label>
+                    <br>
+                    <br>
+                    <div class="col-4">
+                        <input type="submit" value="Enter" />
+                    </div>
+                </form>
+            </div>
+            <br>
+            <div>{{ msg }}</div>
+        {% endif %}
+        {% endif %}
+        <br>
+
+          <a href="/rooms/" class="btn btn-medium waves-effect waves-light teal">Return</a>
+</body>
+
+</html>
